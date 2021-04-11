@@ -1,5 +1,7 @@
 sudo: required
 
+language: generic
+
 services:
   - docker
 
@@ -7,4 +9,4 @@ before_install:
   - docker build -t yash028/docker-react-frontend -f Dockerfile.dev .
 
 script:
-  - docker run yash028/docker-react-frontend npm run test -- --coverage
+  - docker run -e CI=true yash028/docker-react-frontend npm run test -- --coverage
